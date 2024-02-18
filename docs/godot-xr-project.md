@@ -11,7 +11,7 @@ This page contains the steps to create a Godot project capable of running on a M
 
 1. Install Godot. Used version 4.2.1.
 
-2. Open the Godot project explorer and create a new project named `godot-xr`.
+2. Open the Godot project explorer and create a new project named `Godot XR Example`. Set the `Renderer` to `Compatibility` and `Version Control Metadata` to `Git`.
 
 2. Installed CMake. Used version 3.29.
 
