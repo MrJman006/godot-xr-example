@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://ca5siuhwyis1e"]
+
+[ext_resource type="Script" path="res://XrSandbox.gd" id="1_pqvgv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6t7v1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7rkh4"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_by7r6"]
+
+[node name="XRSandbox" type="Node3D"]
+script = ExtResource("1_pqvgv")
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+
+[node name="LeftHand" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
+tracker = &"left_hand"
+
+[node name="LeftHandMesh" type="MeshInstance3D" parent="XROrigin3D/LeftHand"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("BoxMesh_6t7v1")
+
+[node name="RightHand" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
+tracker = &"right_hand"
+
+[node name="RightHandMesh" type="MeshInstance3D" parent="XROrigin3D/RightHand"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("BoxMesh_7rkh4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 3, 0)
+
+[node name="FloorMesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_by7r6")
